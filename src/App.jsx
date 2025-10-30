@@ -1,28 +1,33 @@
-import { useState } from 'react'
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import HeroSpline from "./components/HeroSpline";
+import DashboardPreview from "./components/DashboardPreview";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900">
+      <Header />
+      <Sidebar />
+
+      <main className="pt-16 lg:pl-64">
+        <div className="max-w-7xl mx-auto px-4 py-6 space-y-8">
+          <HeroSpline />
+
+          <section className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl md:text-2xl font-semibold tracking-tight">Unified Dashboard</h2>
+              <p className="text-sm text-slate-500">Role-based views: Admin • Manager • User</p>
+            </div>
+            <DashboardPreview />
+          </section>
+
+          <footer className="py-8 text-center text-sm text-slate-500">
+            © {new Date().getFullYear()} Epacific Technologies. All rights reserved.
+          </footer>
         </div>
-      </div>
+      </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
